@@ -25,6 +25,17 @@
                     >
                         Eliminar
                     </button>
+                    <router-link
+                        class="btn btn-warning btn-sm ml-2"
+                        :to="{
+                            name: 'Editar',
+                            params: {
+                                id: tarea.id
+                            }
+                        }"
+                    >
+                        Editar
+                    </router-link>
                 </td>
             </tr>
                 
