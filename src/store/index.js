@@ -15,11 +15,17 @@ export default createStore({
     set(state, payload) {
       state.tareas.push(payload);
       console.log(state.tareas);
+    },
+    delete(state, payload) {
+      state.tareas = state.tareas.filter(item => item.id !== payload);
     }
   },
   actions: {
     setTareas({ commit }, tarea) {
       commit('set', tarea)
+    },
+    deleteTarea({ commit }, id) {
+      commit('delete', id)
     }
   },
   modules: {

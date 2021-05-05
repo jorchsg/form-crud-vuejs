@@ -8,26 +8,39 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Número</th>
                 <th scope="col">Acciones</th>
+                
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(tarea, index) in tareas" :key="index">
+            <tr v-for="(tarea) in tareas" :key="tarea.id">
                 <th scope="row">{{tarea.id}}</th>
                 <td>{{tarea.nombre}}</td>
-                <td>{{tarea.categoria}}</td>
+                <td>{{tarea.categoria.join(', ')}}</td>
                 <td>{{tarea.estado}}</td>
                 <td>{{tarea.numero}}</td>
+                <td>
+                    <button 
+                        class="btn btn-danger btn-sm" 
+                        @click="deleteTarea(tarea.id)"
+                    >
+                        Eliminar
+                    </button>
+                </td>
             </tr>
+                
         </tbody>
     </table>
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapState, mapActions} from 'vuex';
 
 export default {
     computed: {
-        ...mapState(['tareas'])
+        ...mapState(['tareas']),
+    },
+    methods: {
+         ...mapActions(['deleteTarea'])
     }
 }
 </script>
