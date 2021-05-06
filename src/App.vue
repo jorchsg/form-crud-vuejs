@@ -10,10 +10,22 @@
 <script>
 
   import Navbar from '@/components/Navbar';
+  import {mapActions} from 'vuex';
 
   export default {
+
     components:{
       Navbar
-    }
-  }
+    },
+
+    methods: {
+      ...mapActions(['uploadLocalStorage'])
+    },
+
+    created(){
+      this.uploadLocalStorage();
+    },
+
+  };
+
 </script>
