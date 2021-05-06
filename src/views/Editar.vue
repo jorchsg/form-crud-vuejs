@@ -1,6 +1,10 @@
 <template>
   <div>
-      Editar: {{$route.params.id}} - {{tarea}}
+      <h1 class="text-center mt-3">Editar</h1>
+      <div>
+        <p> <strong>Nombre:</strong>{{tarea.nombre}} </p>
+        <p> <strong>Id: </strong> {{$route.params.id}} </p>
+      </div>
       <form @submit.prevent="updateTarea(tarea)">
         <Input 
             :tarea= "tarea"
